@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://www.electronicshub.org/arduino-rfid-reader/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./RFID Reader_files/pubads_impl_rendering_2019082701.js.download"></script><script async="" src="./RFID Reader_files/saved_resource"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arduino RFID Reader</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v11.5 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://www.electronicshub.org/arduino-rfid-reader/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arduino RFID Reader">
+<meta property="og:description" content="RFID (Radio Frequency IDentification) is an automatic identification and data collection technology which uses the electromagnetic fields in the radio frequency range for non-contact operation. RFID Technology is similar to that of bar codes or magnetic strips i.e. they all provide unique identification system. The data retrieving operation is also similar to the other two …">
+<meta property="og:url" content="https://www.electronicshub.org/arduino-rfid-reader/">
+<meta property="og:site_name" content="Electronics Hub">
+<meta property="article:publisher" content="https://www.facebook.com/electronicshub.org/">
+<meta property="article:author" content="http://www.facebook.com/electronicshub.org">
+<meta property="article:section" content="Arduino">
+<meta property="article:published_time" content="2016-10-08T06:08:46+00:00">
+<meta property="article:modified_time" content="2019-01-24T07:14:07+00:00">
+<meta property="og:updated_time" content="2019-01-24T07:14:07+00:00">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2016/10/Arduino-RFID-Reader-1.jpg">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2016/10/Arduino-RFID-Reader-1.jpg">
+<meta property="og:image:width" content="750">
+<meta property="og:image:height" content="422">
+<script async="" src="./RFID Reader_files/prum.min.js.download"></script><script async="" src="./RFID Reader_files/apstag.js.download"></script><script src="./RFID Reader_files/cmp.js.download" async="" type="text/javascript"></script><script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.electronicshub.org/#website","url":"https://www.electronicshub.org/","name":"Electronics Hub","publisher":{"@id":"https://www.electronicshub.org/#person"},"potentialAction":{"@type":"SearchAction","target":"https://www.electronicshub.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://www.electronicshub.org/arduino-rfid-reader/#primaryimage","url":"https://www.electronicshub.org/wp-content/uploads/2016/10/Arduino-RFID-Reader-1.jpg","width":750,"height":422,"caption":"Arduino RFID Reader"},{"@type":"WebPage","@id":"https://www.electronicshub.org/arduino-rfid-reader/#webpage","url":"https://www.electronicshub.org/arduino-rfid-reader/","inLanguage":"en-US","name":"Arduino RFID Reader","isPartOf":{"@id":"https://www.electronicshub.org/#website"},"primaryImageOfPage":{"@id":"https://www.electronicshub.org/arduino-rfid-reader/#primaryimage"},"datePublished":"2016-10-08T06:08:46+00:00","dateModified":"2019-01-24T07:14:07+00:00"},{"@type":"Article","@id":"https://www.electronicshub.org/arduino-rfid-reader/#article","isPartOf":{"@id":"https://www.electronicshub.org/arduino-rfid-reader/#webpage"},"author":{"@id":"https://www.electronicshub.org/author/elktros/#author"},"headline":"Arduino RFID Reader","datePublished":"2016-10-08T06:08:46+00:00","dateModified":"2019-01-24T07:14:07+00:00","commentCount":"5","mainEntityOfPage":{"@id":"https://www.electronicshub.org/arduino-rfid-reader/#webpage"},"publisher":{"@id":"https://www.electronicshub.org/#person"},"image":{"@id":"https://www.electronicshub.org/arduino-rfid-reader/#primaryimage"},"articleSection":"Arduino"},{"@type":["Person"],"@id":"https://www.electronicshub.org/author/elktros/#author","name":"Administrator","image":{"@type":"ImageObject","@id":"https://www.electronicshub.org/#authorlogo","url":"https://secure.gravatar.com/avatar/317abd64b9b1c6ffe1c98cb18ede317a?s=96&d=mm&r=g","caption":"Administrator"},"description":"We are here to help for engineer students. We are providing complete information of tutorials and projects.","sameAs":["http://www.facebook.com/electronicshub.org","https://twitter.com/eh_org"]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="amphtml" href="https://www.electronicshub.org/arduino-rfid-reader/?amp"><meta name="generator" content="AMP for WP 0.9.97.60"><link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Electronics Hub » Feed" href="https://www.electronicshub.org/feed/">
+<link rel="alternate" type="application/rss+xml" title="Electronics Hub » Comments Feed" href="https://www.electronicshub.org/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Electronics Hub » Arduino RFID Reader Comments Feed" href="https://www.electronicshub.org/arduino-rfid-reader/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.electronicshub.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./RFID Reader_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="news-pro-theme-css" href="./RFID Reader_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./RFID Reader_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="ez-icomoon-css" href="./RFID Reader_files/style.min(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="ez-toc-css" href="./RFID Reader_files/screen.min.css" type="text/css" media="all">
+<style id="ez-toc-inline-css" type="text/css">
+div#ez-toc-container p.ez-toc-title {font-size: 120%;}div#ez-toc-container p.ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}
+</style>
+<link rel="stylesheet" id="dashicons-css" href="./RFID Reader_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-css" href="./RFID Reader_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="./RFID Reader_files/default.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="aawp-css" href="./RFID Reader_files/styles.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="genesis-tabs-stylesheet-css" href="./RFID Reader_files/style(1).css" type="text/css" media="all">
+<script>if (document.location.protocol != "https:") {document.location = document.URL.replace(/^http:/i, "https:");}</script><!--[if lt IE 9]>
+<script type='text/javascript' src='https://www.electronicshub.org/wp-content/themes/genesis/lib/js/html5shiv.min.js?ver=3.7.3'></script>
+<![endif]-->
+<script type="text/javascript" src="./RFID Reader_files/jquery.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/responsive-menu.js.download"></script>
+<link rel="https://api.w.org/" href="https://www.electronicshub.org/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.electronicshub.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.electronicshub.org/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.1.1">
+<link rel="shortlink" href="https://www.electronicshub.org/?p=12406">
+<link rel="alternate" type="application/json+oembed" href="https://www.electronicshub.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.electronicshub.org%2Farduino-rfid-reader%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.electronicshub.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.electronicshub.org%2Farduino-rfid-reader%2F&amp;format=xml">
+<style type="text/css">#tve_editor .ttfm1{font-family: 'Arimo' !important;font-weight: 400 !important;}.ttfm1 input, .ttfm1 select, .ttfm1 textarea, .ttfm1 button {font-family: 'Arimo' !important;font-weight: 400 !important;}#tve_editor .ttfm1.bold_text,.ttfm1 .bold_text,.ttfm1 b,.ttfm1 strong{font-weight: 700 !important;}.ttfm1.bold_text,.ttfm1 .bold_text,.ttfm1 b,.ttfm1 strong input, .ttfm1.bold_text,.ttfm1 .bold_text,.ttfm1 b,.ttfm1 strong select, .ttfm1.bold_text,.ttfm1 .bold_text,.ttfm1 b,.ttfm1 strong textarea, .ttfm1.bold_text,.ttfm1 .bold_text,.ttfm1 b,.ttfm1 strong button {font-weight: 700 !important;}#tve_editor .ttfm2{font-family: 'ABeeZee' !important;font-weight: 400 !important;}.ttfm2 input, .ttfm2 select, .ttfm2 textarea, .ttfm2 button {font-family: 'ABeeZee' !important;font-weight: 400 !important;}#tve_editor .ttfm3{font-family: 'Alef' !important;font-weight: 400 !important;}.ttfm3 input, .ttfm3 select, .ttfm3 textarea, .ttfm3 button {font-family: 'Alef' !important;font-weight: 400 !important;}#tve_editor .ttfm3.bold_text,.ttfm3 .bold_text,.ttfm3 b,.ttfm3 strong{font-weight: 700 !important;}.ttfm3.bold_text,.ttfm3 .bold_text,.ttfm3 b,.ttfm3 strong input, .ttfm3.bold_text,.ttfm3 .bold_text,.ttfm3 b,.ttfm3 strong select, .ttfm3.bold_text,.ttfm3 .bold_text,.ttfm3 b,.ttfm3 strong textarea, .ttfm3.bold_text,.ttfm3 .bold_text,.ttfm3 b,.ttfm3 strong button {font-weight: 700 !important;}#tve_editor .ttfm4{font-family: 'Alegreya' !important;font-weight: 400 !important;}.ttfm4 input, .ttfm4 select, .ttfm4 textarea, .ttfm4 button {font-family: 'Alegreya' !important;font-weight: 400 !important;}#tve_editor .ttfm4.bold_text,.ttfm4 .bold_text,.ttfm4 b,.ttfm4 strong{font-weight: 700 !important;}.ttfm4.bold_text,.ttfm4 .bold_text,.ttfm4 b,.ttfm4 strong input, .ttfm4.bold_text,.ttfm4 .bold_text,.ttfm4 b,.ttfm4 strong select, .ttfm4.bold_text,.ttfm4 .bold_text,.ttfm4 b,.ttfm4 strong textarea, .ttfm4.bold_text,.ttfm4 .bold_text,.ttfm4 b,.ttfm4 strong button {font-weight: 700 !important;}#tve_editor .ttfm5{font-family: 'Alegreya Sans' !important;font-weight: 400 !important;}.ttfm5 input, .ttfm5 select, .ttfm5 textarea, .ttfm5 button {font-family: 'Alegreya Sans' !important;font-weight: 400 !important;}#tve_editor .ttfm5.bold_text,.ttfm5 .bold_text,.ttfm5 b,.ttfm5 strong{font-weight: 500 !important;}.ttfm5.bold_text,.ttfm5 .bold_text,.ttfm5 b,.ttfm5 strong input, .ttfm5.bold_text,.ttfm5 .bold_text,.ttfm5 b,.ttfm5 strong select, .ttfm5.bold_text,.ttfm5 .bold_text,.ttfm5 b,.ttfm5 strong textarea, .ttfm5.bold_text,.ttfm5 .bold_text,.ttfm5 b,.ttfm5 strong button {font-weight: 500 !important;}#tve_editor .ttfm6{font-family: 'Amaranth' !important;font-weight: 400 !important;}.ttfm6 input, .ttfm6 select, .ttfm6 textarea, .ttfm6 button {font-family: 'Amaranth' !important;font-weight: 400 !important;}#tve_editor .ttfm6.bold_text,.ttfm6 .bold_text,.ttfm6 b,.ttfm6 strong{font-weight: 700 !important;}.ttfm6.bold_text,.ttfm6 .bold_text,.ttfm6 b,.ttfm6 strong input, .ttfm6.bold_text,.ttfm6 .bold_text,.ttfm6 b,.ttfm6 strong select, .ttfm6.bold_text,.ttfm6 .bold_text,.ttfm6 b,.ttfm6 strong textarea, .ttfm6.bold_text,.ttfm6 .bold_text,.ttfm6 b,.ttfm6 strong button {font-weight: 700 !important;}#tve_editor .ttfm7{font-family: 'Average' !important;font-weight: 400 !important;}.ttfm7 input, .ttfm7 select, .ttfm7 textarea, .ttfm7 button {font-family: 'Average' !important;font-weight: 400 !important;}#tve_editor .ttfm8{font-family: 'Didact Gothic' !important;font-weight: 400 !important;}.ttfm8 input, .ttfm8 select, .ttfm8 textarea, .ttfm8 button {font-family: 'Didact Gothic' !important;font-weight: 400 !important;}#tve_editor .ttfm9{font-family: 'Ubuntu' !important;font-weight: 400 !important;}.ttfm9 input, .ttfm9 select, .ttfm9 textarea, .ttfm9 button {font-family: 'Ubuntu' !important;font-weight: 400 !important;}#tve_editor .ttfm9.bold_text,.ttfm9 .bold_text,.ttfm9 b,.ttfm9 strong{font-weight: 500 !important;}.ttfm9.bold_text,.ttfm9 .bold_text,.ttfm9 b,.ttfm9 strong input, .ttfm9.bold_text,.ttfm9 .bold_text,.ttfm9 b,.ttfm9 strong select, .ttfm9.bold_text,.ttfm9 .bold_text,.ttfm9 b,.ttfm9 strong textarea, .ttfm9.bold_text,.ttfm9 .bold_text,.ttfm9 b,.ttfm9 strong button {font-weight: 500 !important;}#tve_editor .ttfm10{font-family: 'Droid Serif' !important;font-weight: 400 !important;}.ttfm10 input, .ttfm10 select, .ttfm10 textarea, .ttfm10 button {font-family: 'Droid Serif' !important;font-weight: 400 !important;}#tve_editor .ttfm10.bold_text,.ttfm10 .bold_text,.ttfm10 b,.ttfm10 strong{font-weight: 700 !important;}.ttfm10.bold_text,.ttfm10 .bold_text,.ttfm10 b,.ttfm10 strong input, .ttfm10.bold_text,.ttfm10 .bold_text,.ttfm10 b,.ttfm10 strong select, .ttfm10.bold_text,.ttfm10 .bold_text,.ttfm10 b,.ttfm10 strong textarea, .ttfm10.bold_text,.ttfm10 .bold_text,.ttfm10 b,.ttfm10 strong button {font-weight: 700 !important;}</style><style type="text/css" id="tve_global_variables">:root{}</style><style type="text/css">.aawp .aawp-tb__row--highlight{background-color:#256aaf;}.aawp .aawp-tb__row--highlight{color:#256aaf;}.aawp .aawp-tb__row--highlight a{color:#256aaf;}</style><script type="text/javascript" async="true">var elem=document.createElement("script");elem.src="https://quantcast.mgr.consensu.org/cmp.js";elem.async=!0;elem.type="text/javascript";var scpt=document.getElementsByTagName("script")[0];scpt.parentNode.insertBefore(elem,scpt);(function(){function d(){if(!window.frames.__cmpLocator)if(document.body){var b=document.body,a=document.createElement("iframe");a.style="display:none";a.name="__cmpLocator";b.appendChild(a)}else setTimeout(d,5)}function c(b){var a="string"===typeof b.data;var c=a?-1!=b.data.indexOf("__cmpCall")?JSON.parse(b.data):{}:b.data;if(c.__cmpCall){var e=c.__cmpCall;window.__cmp(e.command,e.parameter,function(c,d){var f={__cmpReturn:{returnValue:c,success:d,callId:e.callId}};b.source.postMessage(a?JSON.stringify(f):f,"*")})}}d();window.__cmp=function(b){var a=arguments;if(a.length)if("ping"===a[0])a[2]({gdprAppliesGlobally:!1,cmpLoaded:!1},!0);else{if("__cmp"==b)return!1;"undefined"===typeof __cmp.a&&(__cmp.a=[]);__cmp.a.push([].slice.apply(a))}else return __cmp.a};window.__cmp.gdprAppliesGlobally=!1;window.__cmp.msgHandler=c;window.addEventListener?window.addEventListener("message",c,!1):window.attachEvent("onmessage",c)})();window.__cmp("init",{Language:"en","Initial Screen Reject Button Text":"I do not accept","Initial Screen Accept Button Text":"I accept","Purpose Screen Header Title Text":"Privacy settings","Purpose Screen Body Text":"You can set your consent preferences and determine how you want your data to be used based on the purposes below. You may set your preferences for us independently from those of third-party partners. Each purpose has a description so that you know how we and partners use your data.","Vendor Screen Body Text":"You can set consent preferences for each individual third-party company below. Expand each company list item to see what purposes they use data for to help make your choices. In some cases, companies may disclose that they use your data without asking for your consent, based on their legitimate interests. You can click on their privacy policies for more information and to opt out.","Vendor Screen Accept All Button Text":"Accept all","Vendor Screen Reject All Button Text":"Reject all","Initial Screen Body Text":"We and our partners use technology such as cookies on our site to personalise content and ads, provide social media features, and analyse our traffic. Click below to consent to the use of this technology across the web. You can change your mind and change your consent choices at anytime by returning to this site.","Initial Screen Body Text Option":1,"Publisher Name":"Electronics Hub","Publisher Logo":"https://www.electronicshub.org/wp-content/uploads/2015/05/eh-logo.jpg","Min Days Between UI Displays":10,"Consent Scope":"service","No Option":!1,"Default Value for Toggles":"on"});</script><style>.qc-cmp-publisher-logo{padding-top: 10px !important;}.qc-cmp-ui-content{padding-top: 10px !important;}.qc-cmp-alt-buttons{padding-bottom:30px !important;}.qc-cmp-ui-content {padding-bottom:30px !important;}.qc-cmp-title{font-size:30px!important;}.qc-cmp-link-text{display:none !important}.qc-cmp-qc-link{display:none !important}</style>
+
+<script type="text/javascript" src="./RFID Reader_files/electronicshuborg.min.js.download"></script>
+
+<script async="async" src="./RFID Reader_files/gpt.js.download"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/8095840/.2_A.34704.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1527869606268-0').addService(googletag.pubads());
+    googletag.defineSlot('/8095840/.2_A.34703.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1527869606268-1').addService(googletag.pubads());
+	googletag.defineSlot('/8095840/.2_A.34808.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1530868769180-0').addService(googletag.pubads());
+   if(window.innerWidth> 960){
+    googletag.defineSlot('/8095840/.2_A.34702.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1527869606268-2').addService(googletag.pubads());
+    googletag.defineSlot('/8095840/.2_A.34701.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1527869606268-3').addService(googletag.pubads());
+    googletag.defineSlot('/8095840/.2_A.34700.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1527869606268-4').addService(googletag.pubads());
+    googletag.defineSlot('/8095840/.2_A.34792.3_electronicshub.org_tier1', [728, 90], 'div-gpt-ad-1530532333266-0').addService(googletag.pubads());
+    googletag.defineSlot('/8095840/.2_A.34793.7_electronicshub.org_tier1', [300, 600], 'div-gpt-ad-1530532333266-1').addService(googletag.pubads());
+    }
+     else {
+    googletag.defineSlot('/8095840/.2_A.34709.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1527869606268-5').addService(googletag.pubads());
+    googletag.defineSlot('/8095840/.2_A.34707.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1527869606268-6').addService(googletag.pubads());
+    googletag.defineSlot('/8095840/.2_A.34706.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1527869606268-7').addService(googletag.pubads());
+    googletag.defineSlot('/8095840/.2_A.34705.4_electronicshub.org_tier1', [300, 250], 'div-gpt-ad-1527869606268-8').addService(googletag.pubads());
+    googletag.defineSlot('/8095840/.2_A.34795.5_electronicshub.org_tier1', [320, 50], 'div-gpt-ad-1530532333266-2').addService(googletag.pubads());
+	}
+    googletag.enableServices();
+  });
+</script>
+
+<meta name="p:domain_verify" content="ccb004a7cb67c1769d53ea98d0d44fbe">
+<script>
+var _prum = [['id', '53502263abe53d5332427270'],
+             ['mark', 'firstbyte', (new Date()).getTime()]];
+(function() {
+    var s = document.getElementsByTagName('script')[0]
+      , p = document.createElement('script');
+    p.async = 'async';
+    p.src = '//rum-static.pingdom.net/prum.min.js';
+    s.parentNode.insertBefore(p, s);
+})();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./RFID Reader_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-40919084-1');
+</script><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+	<link rel="icon" href="https://www.electronicshub.org/wp-content/uploads/2016/08/cropped-ehl-32x32.jpg" sizes="32x32">
+<link rel="icon" href="https://www.electronicshub.org/wp-content/uploads/2016/08/cropped-ehl-192x192.jpg" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://www.electronicshub.org/wp-content/uploads/2016/08/cropped-ehl-180x180.jpg">
+<meta name="msapplication-TileImage" content="https://www.electronicshub.org/wp-content/uploads/2016/08/cropped-ehl-270x270.jpg">
+<link rel="preload" href="./RFID Reader_files/f.txt" as="script"><script type="text/javascript" src="./RFID Reader_files/f.txt"></script><link rel="preload" href="./RFID Reader_files/f(1).txt" as="script"><script type="text/javascript" src="./RFID Reader_files/f(1).txt"></script><script src="./RFID Reader_files/pubads_impl_2019082701.js.download" async=""></script><style>.ez-toc-widget-container ul.ez-toc-list li::before{line-height:undefined;height:undefined}</style><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-35/html/container.html"></head>
+<body data-rsssl="1" class="post-template-default single single-post postid-12406 single-format-standard custom-background aawp-custom custom-header content-sidebar news-pro-blue" itemscope="" itemtype="https://schema.org/WebPage"><div class="site-container"><header class="site-header" itemscope="" itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><p class="site-title" itemprop="headline"><a href="https://www.electronicshub.org/">Electronics Hub</a></p><p class="site-description" itemprop="description">projects | tutorials | courses | kits</p></div><div class="widget-area header-widget-area"><section id="text-27" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><p><!-- /8095840/.2_A.34792.3_electronicshub.org_tier1 --></p>
+<div id="div-gpt-ad-1530532333266-0" style="margin: 0 auto">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1530532333266-0'); });
+</script>
+</div>
+<p><!-- /8095840/.2_A.34795.5_electronicshub.org_tier1 --></p>
+<div id="div-gpt-ad-1530532333266-2" style="margin: 0 auto">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1530532333266-2'); });
+</script>
+<div id="google_ads_iframe_/8095840/.2_A.34795.5_electronicshub.org_tier1_0__container__" style="border: 0pt none; width: 320px; height: 50px;"></div></div>
+</div>
+		</div></section>
+</div></div></header><nav class="nav-primary" aria-label="Main" itemscope="" itemtype="https://schema.org/SiteNavigationElement"><div class="wrap"><div class="responsive-menu-icon"></div><ul id="menu-eh-menu-3" class="menu genesis-nav-menu menu-primary responsive-menu"><li id="menu-item-7959" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7959"><a href="https://www.electronicshub.org/" itemprop="url"><span itemprop="name">HOME</span></a></li>
+<li id="menu-item-7960" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7960"><a href="https://www.electronicshub.org/arduino-rfid-reader/#" itemprop="url"><span itemprop="name">PROJECTS</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7961" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7961"><a href="https://www.electronicshub.org/electronics-mini-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">MINI PROJECTS</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7963" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7963"><a href="https://www.electronicshub.org/top-electrical-mini-projects/?ref=menu" itemprop="url"><span itemprop="name">TOP ELECTRONICS</span></a></li>
+		<li id="menu-item-7964" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7964"><a href="https://www.electronicshub.org/microcontroller-based-mini-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">MICROCONTROLLER</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7962" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7962"><a href="https://www.electronicshub.org/electrical-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">ELECTRICAL</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-8434" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8434"><a href="https://www.electronicshub.org/top-electrical-mini-projects/?ref=menu" itemprop="url"><span itemprop="name">TOP ELECTRICAL</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7965" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7965"><a href="https://www.electronicshub.org/electronics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">ELECTRONICS</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7966" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7966"><a href="https://www.electronicshub.org/top-power-electronics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">TOP</span></a></li>
+		<li id="menu-item-7967" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7967"><a href="https://www.electronicshub.org/latest-electronics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">LATEST</span></a></li>
+		<li id="menu-item-7968" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7968"><a href="https://www.electronicshub.org/led-projects-circuits-engineering-students/?ref=menu" itemprop="url"><span itemprop="name">LED</span></a></li>
+		<li id="menu-item-7969" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7969"><a href="https://www.electronicshub.org/vlsi-projects-for-engineering-students/?ref=menu" itemprop="url"><span itemprop="name">VLSI</span></a></li>
+		<li id="menu-item-7970" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7970"><a href="https://www.electronicshub.org/matlab-projects-for-engineering-students/?ref=menu" itemprop="url"><span itemprop="name">MATLAB</span></a></li>
+		<li id="menu-item-7971" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7971"><a href="https://www.electronicshub.org/sensor-based-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">SENSOR</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-11983" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11983"><a href="https://www.electronicshub.org/home-automation-projects/" itemprop="url"><span itemprop="name">HOME AUTOMATION</span></a></li>
+	<li id="menu-item-12523" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12523"><a href="https://www.electronicshub.org/raspberry-pi-projects/?ref=menu" itemprop="url"><span itemprop="name">RASPBERRY PI</span></a></li>
+	<li id="menu-item-12313" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12313"><a href="https://www.electronicshub.org/iot-project-ideas/?ref=menu" itemprop="url"><span itemprop="name">IOT</span></a></li>
+	<li id="menu-item-7972" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7972"><a href="https://www.electronicshub.org/embedded-systems-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">EMBEDDED</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7973" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7973"><a href="https://www.electronicshub.org/8051-microcontroller-projects-engineering-students/?ref=menu" itemprop="url"><span itemprop="name">8051</span></a></li>
+		<li id="menu-item-7974" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7974"><a href="https://www.electronicshub.org/avr-microcontroller/?ref=menu" itemprop="url"><span itemprop="name">AVR</span></a></li>
+		<li id="menu-item-7975" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7975"><a href="https://www.electronicshub.org/top-pic-microcontroller-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">PIC</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7977" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7977"><a href="https://www.electronicshub.org/communication-based-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">COMMUNICATION</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7978" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7978"><a href="https://www.electronicshub.org/dtmf-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">DTMF</span></a></li>
+		<li id="menu-item-7979" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7979"><a href="https://www.electronicshub.org/gsm-based-projects/?ref=menu" itemprop="url"><span itemprop="name">GSM</span></a></li>
+		<li id="menu-item-7980" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7980"><a href="https://www.electronicshub.org/rfid-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">RFID</span></a></li>
+		<li id="menu-item-7981" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7981"><a href="https://www.electronicshub.org/wireless-communication-based-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">WIRELESS</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-8430" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8430"><a href="https://www.electronicshub.org/top-power-electronics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">POWER ELECTRONICS</span></a></li>
+	<li id="menu-item-8982" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8982"><a href="https://www.electronicshub.org/arm-based-projects/?ref=menu" itemprop="url"><span itemprop="name">ARM PROJECTS</span></a></li>
+	<li id="menu-item-7982" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7982"><a href="https://www.electronicshub.org/robotics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">ROBOTICS</span></a></li>
+	<li id="menu-item-7983" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7983"><a href="https://www.electronicshub.org/solar-energy-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">SOLAR</span></a></li>
+</ul>
+</li>
+<li id="menu-item-8017" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8017"><a href="https://www.electronicshub.org/electronics-mini-project-circuits/?ref=menu" itemprop="url"><span itemprop="name">MINI PROJECTS</span></a></li>
+<li id="menu-item-7976" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7976"><a href="https://www.electronicshub.org/arduino-project-ideas/?ref=menu" itemprop="url"><span itemprop="name">ARDUINO</span></a></li>
+<li id="menu-item-7984" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7984"><a href="https://www.electronicshub.org/free-project-circuits/?ref=menu" itemprop="url"><span itemprop="name">FREE CIRCUITS</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7985" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7985"><a href="https://www.electronicshub.org/electronics-mini-project-circuits/?ref=menu" itemprop="url"><span itemprop="name">MINI PROJECTS</span></a></li>
+	<li id="menu-item-7986" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7986"><a href="https://www.electronicshub.org/free-project-circuits/electronics/?ref=menu" itemprop="url"><span itemprop="name">ELECTRONICS</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7987" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7987"><a href="https://www.electronicshub.org/555-timer/?ref=menu" itemprop="url"><span itemprop="name">555 TIMER</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7988" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7988"><a href="https://www.electronicshub.org/free-project-circuits/embedded/?ref=menu" itemprop="url"><span itemprop="name">EMBEDDED</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7989" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7989"><a href="https://www.electronicshub.org/free-project-circuits/embedded/8051/?ref=menu" itemprop="url"><span itemprop="name">8051</span></a></li>
+		<li id="menu-item-7990" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7990"><a href="https://www.electronicshub.org/free-project-circuits/embedded/avr/?ref=menu" itemprop="url"><span itemprop="name">AVR</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7991" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7991"><a href="https://www.electronicshub.org/free-project-circuits/communication/?ref=menu" itemprop="url"><span itemprop="name">COMMUNICATION</span></a></li>
+	<li id="menu-item-7992" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7992"><a href="https://www.electronicshub.org/free-project-circuits/electrical/?ref=menu" itemprop="url"><span itemprop="name">ELECTRICAL</span></a></li>
+	<li id="menu-item-7993" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7993"><a href="https://www.electronicshub.org/free-project-circuits/robotics/?ref=menu" itemprop="url"><span itemprop="name">ROBOTICS</span></a></li>
+	<li id="menu-item-7994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7994"><a href="https://www.electronicshub.org/free-project-circuits/solar/?ref=menu" itemprop="url"><span itemprop="name">SOLOR</span></a></li>
+	<li id="menu-item-7995" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7995"><a href="https://www.electronicshub.org/free-project-circuits/sensor/?ref=menu" itemprop="url"><span itemprop="name">SENSOR</span></a></li>
+</ul>
+</li>
+<li id="menu-item-7996" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7996"><a href="https://www.electronicshub.org/tutorials/?ref=menu" itemprop="url"><span itemprop="name">TUTORIALS</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7997" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7997"><a href="https://www.electronicshub.org/tutorials/#1_Capacitors" itemprop="url"><span itemprop="name">CAPACITORS</span></a></li>
+	<li id="menu-item-7998" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7998"><a href="https://www.electronicshub.org/tutorials/#2_Resistors" itemprop="url"><span itemprop="name">RESISTORS</span></a></li>
+	<li id="menu-item-7999" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7999"><a href="https://www.electronicshub.org/tutorials/#3_Filters" itemprop="url"><span itemprop="name">FILTERS</span></a></li>
+	<li id="menu-item-8000" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8000"><a href="https://www.electronicshub.org/tutorials/#4_Operational_Amplifiers" itemprop="url"><span itemprop="name">OPERATIONAL AMPLIFIERS</span></a></li>
+	<li id="menu-item-8001" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8001"><a href="https://www.electronicshub.org/tutorials/#5_Diodes" itemprop="url"><span itemprop="name">DIODES</span></a></li>
+	<li id="menu-item-8002" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8002"><a href="https://www.electronicshub.org/tutorials/#6_Transistors" itemprop="url"><span itemprop="name">TRANSISTORS</span></a></li>
+	<li id="menu-item-8003" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8003"><a href="https://www.electronicshub.org/tutorials/#7_Number_Systems" itemprop="url"><span itemprop="name">NUMBER SYSTEMS</span></a></li>
+	<li id="menu-item-8004" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8004"><a href="https://www.electronicshub.org/tutorials/#8_IO_Devices" itemprop="url"><span itemprop="name">IO DEVICES</span></a></li>
+	<li id="menu-item-8005" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8005"><a href="https://www.electronicshub.org/tutorials/#9_Miscellaneous" itemprop="url"><span itemprop="name">MISCELLANEOUS</span></a></li>
+	<li id="menu-item-8006" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8006"><a href="https://www.electronicshub.org/tutorials/#10_DC_Circuit_Theory" itemprop="url"><span itemprop="name">DC CIRCUIT THEORY</span></a></li>
+	<li id="menu-item-8007" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8007"><a href="https://www.electronicshub.org/tutorials/#11_Thyristors" itemprop="url"><span itemprop="name">THYRISTORS</span></a></li>
+	<li id="menu-item-8008" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8008"><a href="https://www.electronicshub.org/tutorials/#12_Sequential_Logic_Circuits" itemprop="url"><span itemprop="name">SEQUENTIAL LOGIC CIRCUITS</span></a></li>
+</ul>
+</li>
+<li id="menu-item-8009" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8009"><a href="https://www.electronicshub.org/symbols/?ref=menu" itemprop="url"><span itemprop="name">SYMBOLS</span></a></li>
+<li id="menu-item-11121" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-11121"><a href="https://www.electronicshub.org/diy-projects/" itemprop="url"><span itemprop="name">DIY</span></a></li>
+<li id="menu-item-11476" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11476"><a href="https://electronicshub.teachable.com/" itemprop="url"><span itemprop="name">COURSES</span></a></li>
+<li id="menu-item-8011" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8011"><a href="https://www.electronicshub.org/contact/?ref=menu" itemprop="url"><span itemprop="name">CONTACT US</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-8012" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8012"><a href="https://www.electronicshub.org/contact/" itemprop="url"><span itemprop="name">FOLLOW US</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-8013" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8013"><a href="https://www.facebook.com/electronicshub.org" itemprop="url"><span itemprop="name">FACEBOOK</span></a></li>
+		<li id="menu-item-8014" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8014"><a href="https://www.youtube.com/user/electronicshuborg" itemprop="url"><span itemprop="name">YOUTUBE</span></a></li>
+		<li id="menu-item-15526" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15526"><a href="https://www.instagram.com/eh_org/" itemprop="url"><span itemprop="name">INSTAGRAM</span></a></li>
+		<li id="menu-item-8015" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8015"><a href="https://plus.google.com/+ElectronicsHubOrg?prsrc=5" itemprop="url"><span itemprop="name">GOOGLE PLUS</span></a></li>
+		<li id="menu-item-8016" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8016"><a href="http://twitter.com/eh_org" itemprop="url"><span itemprop="name">TWITTER</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+</ul></div></nav><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><div class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">You are here: <span class="breadcrumb-link-wrap" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a class="breadcrumb-link" href="https://www.electronicshub.org/" itemprop="item"><span class="breadcrumb-link-text-wrap" itemprop="name">Home</span></a><meta itemprop="position" content="1"></span> <span aria-label="breadcrumb separator">/</span> <span class="breadcrumb-link-wrap" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a class="breadcrumb-link" href="https://www.electronicshub.org/arduino/" itemprop="item"><span class="breadcrumb-link-text-wrap" itemprop="name">Arduino</span></a><meta itemprop="position" content="2"></span> <span aria-label="breadcrumb separator">/</span> Arduino RFID Reader</div><article class="post-12406 post type-post status-publish format-standard has-post-thumbnail category-arduino entry" itemscope="" itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h1 class="entry-title" itemprop="headline">Arduino RFID Reader</h1>
+<p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2016-10-08T01:38:46-04:30">October 8, 2016</time> By <span class="entry-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person"><a href="https://www.electronicshub.org/author/elktros/" class="entry-author-link" itemprop="url" rel="author"><span class="entry-author-name" itemprop="name">Administrator</span></a></span> <span class="entry-comments-link"><a href="https://www.electronicshub.org/arduino-rfid-reader/#comments">5 Comments</a></span> </p></header><div class="entry-content" itemprop="text"><p>RFID (<span style="text-decoration: underline; color: #0000ff;"><a style="color: #0000ff; text-decoration: underline;" href="https://www.electronicshub.org/rfid-technology-and-its-applications/"><strong>R</strong>adio <strong>F</strong>requency <strong>ID</strong>entification</a></span>) is an automatic identification and data collection technology which uses the electromagnetic fields in the radio frequency range for non-contact operation.</p>
+<p class="p1"><span class="s1"></span></p><div id="div-gpt-ad-1527869606268-4" align="center" style="width:300px; margin: 0 auto">
+<script>
+googletag.cmd.push(function() { googletag.display("div-gpt-ad-1527869606268-4"); });
+</script>
+</div>
+<div id="div-gpt-ad-1527869606268-8" align="center" style="width:300px; margin: 0 auto">
+<script>
+googletag.cmd.push(function() { googletag.display("div-gpt-ad-1527869606268-8"); });
+</script>
+<div id="google_ads_iframe_/8095840/.2_A.34705.4_electronicshub.org_tier1_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div>
+<p></p>
+<p>RFID Technology is similar to that of bar codes or magnetic strips i.e. they all provide unique identification system. The data retrieving operation is also similar to the other two technologies. Bar codes and magnetic strips must be scanned against their corresponding readers and similarly RFID devices must also be scanned or swiped against their readers.</p>
+<p>The advantage of RFID technology over bar codes or magnetic strips is that RFID doesn’t need any physical contact as in case of magnetic strips (ATM or credit cards) or needn’t be placed in a particular position as in case of bar codes.</p>
+<div class="su-note" style="border-color:#e3e38b;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><div class="su-note-inner su-clearfix" style="background-color:#fcfc9a;border-color:#fefeeb;color:#333333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><strong>Select the Next Set of Arduino Projects You Want to Learn in Electronicshub</strong><b>: <a href="https://docs.google.com/forms/d/e/1FAIpQLSe51MOjXFxpR6O_q6-SlvpoAoRsF6JWtWCSXCq1Utdxt_R3Vw/viewform?usp=sf_link">Arduino Projects</a></b>» </div></div>
+<p>In this project, an Arduino UNO board is integrated with an RFID Reader Module in order to process the data or information retrieved from the RFID Card or Tag.</p>
+<div id="su_slider_5d1a0a9a76c48" class="su-slider su-slider-centered su-slider-pages-yes su-slider-responsive-yes" style="width: 100%; cursor: -webkit-grab;" data-autoplay="3000" data-speed="600" data-mousewheel="true"><div class="su-slider-slides" style="width: 3636px; transform: translate3d(-1212px, 0px, 0px); transition-duration: 0.6s; height: 347px;"><div xmlns="http://www.w3.org/1999/xhtml" class="su-slider-slide swiper-slide-duplicate" style="width: 606px; height: 347px;"><a><img src="./RFID Reader_files/Arduino-RFID-Reader-4-760x440.jpg" alt="Arduino RFID Reader"><span class="su-slider-slide-title">Arduino RFID Reader</span></a></div><div class="su-slider-slide" style="width: 606px; height: 347px;"><a><img src="./RFID Reader_files/Arduino-RFID-Reader-1-760x440.jpg" alt="Arduino RFID Reader"><span class="su-slider-slide-title">Arduino RFID Reader</span></a></div><div class="su-slider-slide su-slider-slide-visible su-slider-slide-active" style="width: 606px; height: 347px;"><a><img src="./RFID Reader_files/Arduino-RFID-Reader-2-760x440.jpg" alt="Arduino RFID Reader"><span class="su-slider-slide-title">Arduino RFID Reader</span></a></div><div class="su-slider-slide" style="width: 606px; height: 347px;"><a><img src="./RFID Reader_files/Arduino-RFID-Reader-3-760x440.jpg" alt="Arduino RFID Reader"><span class="su-slider-slide-title">Arduino RFID Reader</span></a></div><div class="su-slider-slide" style="width: 606px; height: 347px;"><a><img src="./RFID Reader_files/Arduino-RFID-Reader-4-760x440.jpg" alt="Arduino RFID Reader"><span class="su-slider-slide-title">Arduino RFID Reader</span></a></div><div xmlns="http://www.w3.org/1999/xhtml" class="su-slider-slide swiper-slide-duplicate" style="width: 606px; height: 347px;"><a><img src="./RFID Reader_files/Arduino-RFID-Reader-1-760x440.jpg" alt="Arduino RFID Reader"><span class="su-slider-slide-title">Arduino RFID Reader</span></a></div></div><div class="su-slider-nav"><div class="su-slider-direction"><span class="su-slider-prev"></span><span class="su-slider-next"></span></div><div class="su-slider-pagination"><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span></div></div></div>
+<p class="p1"><span class="s1"></span></p><div id="div-gpt-ad-1527869606268-3" align="center" style="width:300px; margin: 0 auto">
+<script>
+googletag.cmd.push(function() { googletag.display("div-gpt-ad-1527869606268-3"); });
+</script>
+</div>
+<div id="div-gpt-ad-1527869606268-7" align="center" style="width:300px; margin: 0 auto">
+<script>
+googletag.cmd.push(function() { googletag.display("div-gpt-ad-1527869606268-7"); });
+</script>
+<div id="google_ads_iframe_/8095840/.2_A.34706.4_electronicshub.org_tier1_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div><p></p>
+<div id="ez-toc-container" class="counter-hierarchy counter-decimal ez-toc-transparent">
+<div class="ez-toc-title-container">
+<p class="ez-toc-title">Table of Contents</p>
+<span class="ez-toc-title-toggle"><a class="ez-toc-pull-right ez-toc-btn ez-toc-btn-xs ez-toc-btn-default ez-toc-toggle"><i class="ez-toc-glyphicon ez-toc-icon-toggle"></i></a></span></div>
+<nav><ul class="ez-toc-list"><li><a href="https://www.electronicshub.org/arduino-rfid-reader/#Circuit_Diagram" title="Circuit Diagram">Circuit Diagram</a></li><li><a href="https://www.electronicshub.org/arduino-rfid-reader/#Components" title="Components">Components</a></li><li><a href="https://www.electronicshub.org/arduino-rfid-reader/#RFID_Reader_and_RFID_Cards" title="RFID Reader and RFID Cards">RFID Reader and RFID Cards</a></li><li><a href="https://www.electronicshub.org/arduino-rfid-reader/#Design_of_Arduino_RFID_Reader_Circuit" title="Design of Arduino RFID Reader Circuit">Design of Arduino RFID Reader Circuit</a></li><li><a href="https://www.electronicshub.org/arduino-rfid-reader/#Working_Principle_of_the_Project" title="Working Principle of the Project">Working Principle of the Project</a></li><li><a href="https://www.electronicshub.org/arduino-rfid-reader/#Applications_of_Arduino_and_RFID_Integration" title="Applications of Arduino and RFID Integration">Applications of Arduino and RFID Integration</a></li><li><a href="https://www.electronicshub.org/arduino-rfid-reader/#Project_Code" title="Project Code">Project Code</a></li></ul></nav></div>
+<h3><span class="ez-toc-section" id="Circuit_Diagram">Circuit Diagram</span></h3>
+<div id="attachment_12420" style="width: 2186px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-12420" class="wp-image-12420 size-full" src="./RFID Reader_files/Arduino-RFID-Reader-Circuit-Diagram.jpg" width="2176" height="1228" srcset="https://www.electronicshub.org/wp-content/uploads/2016/10/Arduino-RFID-Reader-Circuit-Diagram.jpg 2176w, https://www.electronicshub.org/wp-content/uploads/2016/10/Arduino-RFID-Reader-Circuit-Diagram-300x169.jpg 300w, https://www.electronicshub.org/wp-content/uploads/2016/10/Arduino-RFID-Reader-Circuit-Diagram-768x433.jpg 768w, https://www.electronicshub.org/wp-content/uploads/2016/10/Arduino-RFID-Reader-Circuit-Diagram-1024x578.jpg 1024w" sizes="(max-width: 2176px) 100vw, 2176px"><p id="caption-attachment-12420" class="wp-caption-text"><em>Figure #1 – Arduino RFID Reader Circuit Diagram</em></p></div>
+<h3><span class="ez-toc-section" id="Components">Components</span></h3>
+<ul>
+<li>Arduino UNO [<a href="https://amzn.to/2RKxxlG" target="_blank" rel="nofollow noopener noreferrer">Buy Here</a>]</li>
+<li>EM – 18 RFID Reader Module [<a href="https://amzn.to/2MtJupN" target="_blank" rel="nofollow noopener noreferrer">Buy Here</a>]</li>
+<li>RFID Cards or Tags [<a href="https://amzn.to/2MtJupN" target="_blank" rel="nofollow noopener noreferrer">Buy Here</a>]</li>
+<li>16 x 2 LCD Display [<a href="https://amzn.to/2WgdfyL" target="_blank" rel="nofollow noopener noreferrer">Buy Here</a>]</li>
+<li>10KΩ Potentiometer [<a href="https://amzn.to/2Wd3nWy" target="_blank" rel="nofollow noopener noreferrer">Buy Here</a>]</li>
+<li>Connecting wires [<a href="https://amzn.to/2sHkT7V" target="_blank" rel="nofollow noopener noreferrer">Buy Here</a>]</li>
+<li>Power supply – 5V and 12V [<a href="https://amzn.to/2Mqqsk6" target="_blank" rel="nofollow noopener noreferrer">Buy Here</a>]</li>
+<li>Prototyping board [<a href="https://amzn.to/2S32gcV" target="_blank" rel="nofollow noopener noreferrer">Buy Here</a>]</li>
+</ul>
+<h3><span class="ez-toc-section" id="RFID_Reader_and_RFID_Cards">RFID Reader and RFID Cards</span></h3>
+<p>As mentioned earlier, RFID is a wireless, non-contact type technology. Hence, it contains two components: RFID Cards or Tags and RFID Reader.</p>
+<p>RFID Reader Modules are basically radio frequency transceiver (transmitter and receiver). A simple RFID reader consists of an antenna, demodulator, data decoder unit and some filters. RFID readers can read and/or write data in to the RFID cards (depending on the type of the card).</p>
+<p>The RFID Reader module used in this project is EM – 18. It radiates a 125 KHz signal through its antenna and hence a similar frequency based RFID Card must be used.</p>
+<div id="attachment_12422" style="width: 760px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-12422" class="size-full wp-image-12422" src="./RFID Reader_files/RFID-Reader-and-RFID-Cards.jpg" alt="RFID Reader and RFID Cards" width="750" height="452" srcset="https://www.electronicshub.org/wp-content/uploads/2016/10/RFID-Reader-and-RFID-Cards.jpg 750w, https://www.electronicshub.org/wp-content/uploads/2016/10/RFID-Reader-and-RFID-Cards-300x181.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-12422" class="wp-caption-text"><em>Figure #2 – RFID Reader and RFID Cards</em></p></div>
+<p>RFID Card or Tag consists of an antenna and an IC for storing the data. RFID Cards can be either active type or passive type.</p>
+<p><strong>Active RFID Cards: </strong></p>
+<ul>
+<li>They need external power i.e. they are powered by battery.</li>
+<li>Data can be read or write from the cards as they consists of EEPROM.</li>
+<li>The range is typically 100 feet or more.</li>
+</ul>
+<p><strong>Passive RFID Cards: </strong></p>
+<ul>
+<li>Do not need external power. The required power for the operation is drawn from the electromagnetic field generated by the RFID reader.</li>
+<li>Usually, passive RFID cards are read only type i.e. data, which is programmed by the manufacturer, can only be read by the reader.</li>
+<li>The range is very small i.e. a maximum of 10 feet.</li>
+</ul>
+<h3><span class="ez-toc-section" id="Design_of_Arduino_RFID_Reader_Circuit">Design of Arduino RFID Reader Circuit</span></h3>
+<p>The main components of the project are Arduino UNO, RFID Reader, some RFID cards and an alphanumeric LCD display. The design of the circuit is described here. As Arduino is the main processing device, all the connections are the connections are explained with respect to it.</p>
+<p>The RFID Reader module used in the project i.e. EM – 18 consists of 4 pins: Vcc, TX, RX and GND. As this module runs on 12V, it must be powered separately using a 12V supply.</p>
+<p><strong><em>Note</em></strong>: The power supply to the RFID Reader is dependent on the type of the module.</p>
+<p>The communication between the RFID Reader and external devices like microcontrollers is implemented using UART protocol (hence, TX and RX pins). As the reader reads the information from the card and transmits to the host device i.e. Arduino UNO, the TX pin of the Reader must be connected to RXD pin (Pin 0) of Arduino.</p>
+<p><strong><em>Note</em></strong>: While programming the Arduino, the RXD pin must be disconnected as this line is used by the USB communication. To avoid this, we can define any of the other pins as serial communication pins (Rx and TX) using software and the library used for this is “SoftwareSerial.h”.</p>
+<p>An LCD is used to display the information that is retrieved from the RFID Card. We need to connect RS, E, D4, D5, D6 and D7 pins of the LCD to Arduino. All the connections are shown in the circuit diagram.</p>
+<p>All the other connections with respect to LCD i.e. contrast adjusting potentiometer, power supply etc. are also shown in the circuit diagram and are self-explanatory.</p>
+<h3><span class="ez-toc-section" id="Working_Principle_of_the_Project">Working Principle of the Project</span></h3>
+<p>The aim of the project is to transmit the data read by the RFID reader to Arduino and display it on the LCD. The working of the project is explained in this section.</p>
+<p>As the RFID system used here is of passive type, the information on the RFID Cards is preprogrammed. In order to read that data, the card must be brought in proximity of the reader.</p>
+<p>The RFID reader module continuously emits electromagnetic radiation in the form of radio waves at a frequency of 125 KHz. When a passive RFID card is brought near this field, due to the concept of mutual induction, the electromagnetic field from the reader induces a small current in the antenna coil of the card.</p>
+<p>As a result, the IC in the card gets sufficient power from this and transmits the data through the antenna which is in turn received by the antenna of the reader.</p>
+<p>The data received by the RFID reader is now transmitted to Arduino UNO using UART communication protocol. Arduino in turn displays this message on the LCD.</p>
+<h3><span class="ez-toc-section" id="Applications_of_Arduino_and_RFID_Integration">Applications of Arduino and RFID Integration</span></h3>
+<ul>
+<li>The project explained here only retrieves the information from RFID card and displays it on the LCD.</li>
+<li>Many advanced applications can be implemented using Arduino and RFID.</li>
+<li>Some of the applications are RFID based authentication system, security access system, attendance system, inventory management, livestock management etc.</li>
+</ul>
+<h3><span class="ez-toc-section" id="Project_Code">Project Code</span></h3>
+<p><script src="./RFID Reader_files/e1f21d561b503f6a514df870fe1381f6.js.download"></script><link rel="stylesheet" href="./RFID Reader_files/gist-embed-4ac6018bcc05457cde2f66d2e7299d11.css"></p><div id="gist40649123" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-arduino-rfid-reader-code" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-text ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-arduino-rfid-reader-code-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-arduino-rfid-reader-code-LC1" class="blob-code blob-code-inner js-file-line">#include &lt;LiquidCrystal.h&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-arduino-rfid-reader-code-LC2" class="blob-code blob-code-inner js-file-line">LiquidCrystal lcd(2, 3, 4, 5, 6, 7);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-arduino-rfid-reader-code-LC3" class="blob-code blob-code-inner js-file-line">int count = 0; </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-arduino-rfid-reader-code-LC4" class="blob-code blob-code-inner js-file-line">char singleChar; </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-arduino-rfid-reader-code-LC5" class="blob-code blob-code-inner js-file-line">String readMsg;</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-arduino-rfid-reader-code-LC6" class="blob-code blob-code-inner js-file-line"> </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-arduino-rfid-reader-code-LC7" class="blob-code blob-code-inner js-file-line">void setup()</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-arduino-rfid-reader-code-LC8" class="blob-code blob-code-inner js-file-line"> {</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-arduino-rfid-reader-code-LC9" class="blob-code blob-code-inner js-file-line">   Serial.begin(9600);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-arduino-rfid-reader-code-LC10" class="blob-code blob-code-inner js-file-line">   lcd.begin(16,2); </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-arduino-rfid-reader-code-LC11" class="blob-code blob-code-inner js-file-line">   lcd.setCursor (0,0);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-arduino-rfid-reader-code-LC12" class="blob-code blob-code-inner js-file-line">   lcd.print("ELECTRONICS HUB");</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-arduino-rfid-reader-code-LC13" class="blob-code blob-code-inner js-file-line">   lcd.setCursor(0,1); </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-arduino-rfid-reader-code-LC14" class="blob-code blob-code-inner js-file-line">   lcd.print("  RFID Reader  ");</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-arduino-rfid-reader-code-LC15" class="blob-code blob-code-inner js-file-line">   delay (2000);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-arduino-rfid-reader-code-LC16" class="blob-code blob-code-inner js-file-line"> }</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-arduino-rfid-reader-code-LC17" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-arduino-rfid-reader-code-LC18" class="blob-code blob-code-inner js-file-line">void loop() </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-arduino-rfid-reader-code-LC19" class="blob-code blob-code-inner js-file-line">{</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-arduino-rfid-reader-code-LC20" class="blob-code blob-code-inner js-file-line"> if(readMsg == 0)</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-arduino-rfid-reader-code-LC21" class="blob-code blob-code-inner js-file-line">  {                        </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-arduino-rfid-reader-code-LC22" class="blob-code blob-code-inner js-file-line">   lcd.setCursor(0,0);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-arduino-rfid-reader-code-LC23" class="blob-code blob-code-inner js-file-line">   lcd.print(" Swipe the Card ");</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-arduino-rfid-reader-code-LC24" class="blob-code blob-code-inner js-file-line">   lcd.setCursor(0,1);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-arduino-rfid-reader-code-LC25" class="blob-code blob-code-inner js-file-line">   lcd.print("                ");</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-arduino-rfid-reader-code-LC26" class="blob-code blob-code-inner js-file-line">  }</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-arduino-rfid-reader-code-LC27" class="blob-code blob-code-inner js-file-line">while(Serial.available()&gt;0)</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-arduino-rfid-reader-code-LC28" class="blob-code blob-code-inner js-file-line">  {      </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-arduino-rfid-reader-code-LC29" class="blob-code blob-code-inner js-file-line">   lcd.setCursor(0,0);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-arduino-rfid-reader-code-LC30" class="blob-code blob-code-inner js-file-line">   lcd.print("   Card ID is   ");</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-arduino-rfid-reader-code-LC31" class="blob-code blob-code-inner js-file-line">   lcd.setCursor(0,1);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-arduino-rfid-reader-code-LC32" class="blob-code blob-code-inner js-file-line">   lcd.print("                ");</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-arduino-rfid-reader-code-LC33" class="blob-code blob-code-inner js-file-line"> </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-arduino-rfid-reader-code-LC34" class="blob-code blob-code-inner js-file-line">   singleChar = Serial.read();</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-arduino-rfid-reader-code-LC35" class="blob-code blob-code-inner js-file-line">   count++;</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-arduino-rfid-reader-code-LC36" class="blob-code blob-code-inner js-file-line">   readMsg += singleChar;</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-arduino-rfid-reader-code-LC37" class="blob-code blob-code-inner js-file-line">   if(count == 12)  </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-arduino-rfid-reader-code-LC38" class="blob-code blob-code-inner js-file-line">    {</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-arduino-rfid-reader-code-LC39" class="blob-code blob-code-inner js-file-line">      lcd.setCursor(2,1);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-arduino-rfid-reader-code-LC40" class="blob-code blob-code-inner js-file-line">      lcd.print(readMsg);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-arduino-rfid-reader-code-LC41" class="blob-code blob-code-inner js-file-line">      break; </td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-arduino-rfid-reader-code-LC42" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-arduino-rfid-reader-code-LC43" class="blob-code blob-code-inner js-file-line">  }</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-arduino-rfid-reader-code-LC44" class="blob-code blob-code-inner js-file-line">readMsg="";</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-arduino-rfid-reader-code-LC45" class="blob-code blob-code-inner js-file-line">delay(1000);</td>
+      </tr>
+      <tr>
+        <td id="file-arduino-rfid-reader-code-L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="file-arduino-rfid-reader-code-LC46" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/elktros/e1f21d561b503f6a514df870fe1381f6/raw/f88466cdc4724a5db6748009595a4e12c557fcec/Arduino%20RFID%20Reader%20Code" style="float:right">view raw</a>
+        <a href="https://gist.github.com/elktros/e1f21d561b503f6a514df870fe1381f6#file-arduino-rfid-reader-code">Arduino RFID Reader Code</a>
+        hosted with <img draggable="false" class="emoji" alt="❤" src="./RFID Reader_files/2764.svg"> by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<p></p>
+</div><div class="ad-after-content"><section id="text-15" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><div id="div-gpt-ad-1527869606268-2" style="width:300px; margin: 0 auto">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1527869606268-2'); });
+</script>
+</div>
+<div id="div-gpt-ad-1527869606268-6" style="width:300px; margin: 0 auto">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1527869606268-6'); });
+</script>
+<div id="google_ads_iframe_/8095840/.2_A.34707.4_electronicshub.org_tier1_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div>
+</div>
+		</div></section>
+</div><!-- end .ad-after-content --><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="https://www.electronicshub.org/arduino/" rel="category tag">Arduino</a></span> </p></footer></article><div class="entry-comments" id="comments"><h3>Comments</h3><ol class="comment-list">
+	<li class="comment even thread-even depth-1" id="comment-286791">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./RFID Reader_files/3713c320e1063df49a9ce326862ae76c.png" srcset="https://secure.gravatar.com/avatar/3713c320e1063df49a9ce326862ae76c?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span class="comment-author-name" itemprop="name">Brhanu</span> <span class="says">says</span>			</p>
+
+			<a class="comment-time-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-286791" itemprop="url">September 6, 2017 at 3:01 pm</a><time class="comment-time" datetime="2017-09-06T15:01:14-04:30" itemprop="datePublished"></time><p class="comment-meta"></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Please help me to get the link in which i can download RFID reader library for proteus. I’m waiting your response. Thank you.</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-286791" data-commentid="286791" data-postid="12406" data-belowelement="comment-286791" data-respondelement="respond" aria-label="Reply to Brhanu">Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-raviteja odd alt depth-2" id="comment-305689">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./RFID Reader_files/5a0bcadc76e253174f46b5ab678408de.png" srcset="https://secure.gravatar.com/avatar/5a0bcadc76e253174f46b5ab678408de?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span class="comment-author-name" itemprop="name">Ravi</span> <span class="says">says</span>			</p>
+
+			<a class="comment-time-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-305689" itemprop="url">December 26, 2017 at 2:18 am</a><time class="comment-time" datetime="2017-12-26T02:18:47-04:30" itemprop="datePublished"></time><p class="comment-meta"></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>I think there is no library for RFID Module in Proteus.</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-305689" data-commentid="305689" data-postid="12406" data-belowelement="comment-305689" data-respondelement="respond" aria-label="Reply to Ravi">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-310973">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./RFID Reader_files/c0f9a2ecbb1dfca33063b3e997636289.png" srcset="https://secure.gravatar.com/avatar/c0f9a2ecbb1dfca33063b3e997636289?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span class="comment-author-name" itemprop="name">rushikesh hulge</span> <span class="says">says</span>			</p>
+
+			<a class="comment-time-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-310973" itemprop="url">March 18, 2018 at 4:34 am</a><time class="comment-time" datetime="2018-03-18T04:34:00-04:30" itemprop="datePublished"></time><p class="comment-meta"></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>what is the extension for the project code</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-310973" data-commentid="310973" data-postid="12406" data-belowelement="comment-310973" data-respondelement="respond" aria-label="Reply to rushikesh hulge">Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-raviteja odd alt depth-2" id="comment-311001">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./RFID Reader_files/5a0bcadc76e253174f46b5ab678408de.png" srcset="https://secure.gravatar.com/avatar/5a0bcadc76e253174f46b5ab678408de?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span class="comment-author-name" itemprop="name">Ravi</span> <span class="says">says</span>			</p>
+
+			<a class="comment-time-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-311001" itemprop="url">March 19, 2018 at 12:14 am</a><time class="comment-time" datetime="2018-03-19T00:14:58-04:30" itemprop="datePublished"></time><p class="comment-meta"></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Arduino Sketches are usually saved with an extension “.ino”</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-311001" data-commentid="311001" data-postid="12406" data-belowelement="comment-311001" data-respondelement="respond" aria-label="Reply to Ravi">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-314590">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./RFID Reader_files/396403fe9ef0882f7bfb265312013b49.png" srcset="https://secure.gravatar.com/avatar/396403fe9ef0882f7bfb265312013b49?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span class="comment-author-name" itemprop="name">David</span> <span class="says">says</span>			</p>
+
+			<a class="comment-time-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-314590" itemprop="url">June 17, 2018 at 3:08 pm</a><time class="comment-time" datetime="2018-06-17T15:08:47-04:30" itemprop="datePublished"></time><p class="comment-meta"></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hey cool project. Can you tell me what the program for the Arduino Nano with i2c display must look like?</p>
+<p>greeting</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/arduino-rfid-reader/#comment-314590" data-commentid="314590" data-postid="12406" data-belowelement="comment-314590" data-respondelement="respond" aria-label="Reply to David">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ol></div>	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.electronicshub.org/arduino-rfid-reader/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://www.electronicshub.org/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="12406" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="a9fe8f0bf7"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1567158120523"></form>
+			</div><!-- #respond -->
+	</main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar" itemscope="" itemtype="https://schema.org/WPSideBar"><section id="search-2" class="widget widget_search"><div class="widget-wrap"><form class="search-form" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction" method="get" action="https://www.electronicshub.org/" role="search"><input class="search-form-input" type="search" itemprop="query-input" name="s" id="searchform-5d1a0a9a7adc54.57690076" placeholder="Search this website"><input class="search-form-submit" type="submit" value="Search"><meta itemprop="target" content="https://www.electronicshub.org/?s={s}"></form></div></section>
+<section id="text-34" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><p></p><center><a href="https://www.7pcb.com/PCB-Assembly-Service.php" target="_blank" rel="noopener">PCB Assembly Services</a></center><p></p>
+</div>
+		</div></section>
+<section id="text-25" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><div id="div-gpt-ad-1527869606268-1" style="height:250px; width:300px;">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1527869606268-1'); });
+</script>
+<div id="google_ads_iframe_/8095840/.2_A.34703.4_electronicshub.org_tier1_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div>
+</div>
+		</div></section>
+<section id="text-16" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><!-- /8095840/.2_A.34808.4_electronicshub.org_tier1 -->
+<div id="div-gpt-ad-1530868769180-0" style="height:250px; width:300px;">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1530868769180-0'); });
+</script>
+<div id="google_ads_iframe_/8095840/.2_A.34808.4_electronicshub.org_tier1_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div></div>
+		</div></section>
+<section id="text-5" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><div id="div-gpt-ad-1527869606268-0" style="height:250px; width:300px;">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1527869606268-0'); });
+</script>
+<div id="google_ads_iframe_/8095840/.2_A.34704.4_electronicshub.org_tier1_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div>
+</div>
+		</div></section>
+<section id="text-18" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Projects By Category</h4>
+			<div class="textwidget"><a href="https://www.electronicshub.org/arduino-project-ideas/?ref=sidebar">Arduino Projects</a> (200+)	<br>
+<a href="https://www.electronicshub.org/electronics-mini-projects-ideas/?ref=sidebar">Electronics Projects</a> (250+)	<br>
+<a href="https://www.electronicshub.org/electronics-mini-project-circuits/?ref=sidebar">Mini Project Circuits</a> (160+)	<br>
+<a href="https://www.electronicshub.org/electronics-projects-ideas/?ref=sidebar">Mini Project Ideas</a> (150+)	<br>
+<a href="https://www.electronicshub.org/ece-projects-ideas/?ref=sidebar">ECE Projects</a> (150+)	<br>
+<a href="https://www.electronicshub.org/eee-projects-ideas/?ref=sidebar">EEE Projects</a> (150+)	<br>
+<a href="https://www.electronicshub.org/8051-microcontroller-projects-engineering-students/?ref=sidebar">8051 Projects</a> (110+)	<br>
+<a href="https://www.electronicshub.org/raspberry-pi-projects/?ref=sidebar">Raspberry Pi Projects</a> (101+)	<br>
+<a href="https://www.electronicshub.org/electrical-projects-ideas/?ref=sidebar">Electrical Project Ideas</a> (100+)	<br>
+<a href="https://www.electronicshub.org/embedded-systems-projects-ideas/?ref=sidebar">Embedded Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/latest-electronics-projects-ideas/?ref=sidebar">Latest Electronics Ideas</a> (100+)	<br>
+<a href="https://www.electronicshub.org/microcontroller-based-mini-projects-ideas/?ref=sidebar">Microcontroller Mini Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/robotics-projects-ideas/?ref=sidebar">Robotics Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/vlsi-projects-for-engineering-students/?ref=sidebar">VLSI Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/solar-energy-projects-ideas/?ref=sidebar">Solar Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/iot-project-ideas/?ref=sidebar">IOT Projects</a> (100+)	<br>
+<hr>
+
+<a href="https://www.electronicshub.org/communication-based-projects-ideas/?ref=sidebar">Communication Projects</a> (70+)	<br>
+<a href="https://www.electronicshub.org/led-projects-circuits-engineering-students/?ref=sidebar">LED Projects</a> (70+)	<br>
+<a href="https://www.electronicshub.org/top-power-electronics-projects-ideas/?ref=sidebar">Power Electronics Projects </a> (60+)	<br>
+<a href="https://www.electronicshub.org/rfid-projects-ideas/?ref=sidebar">RFID Projects</a> (60+)	<br>
+<a href="https://www.electronicshub.org/home-automation-projects/?ref=sidebar">Home Automation Projects</a> (50+)	<br>
+<a href="https://www.electronicshub.org/matlab-projects-for-engineering-students/?ref=sidebar">Matlab Projects</a> (50+)	<br>
+<a href="https://www.electronicshub.org/eie-projects-ideas/?ref=sidebar">EIE Projects</a> (50+)	<br>
+<a href="https://www.electronicshub.org/wireless-communication-based-projects-ideas/?ref=sidebar">Wireless Projects </a>	(50+)<br>
+<a href="https://www.electronicshub.org/labview-projects/?ref=sidebar">LabView Projects</a> (45+)	<br>
+<a href="https://www.electronicshub.org/zigbee-projects/?ref=sidebar">Zigbee Projects </a>	(45+)<br>
+<a href="https://www.electronicshub.org/gsm-based-projects/?ref=sidebar">GSM Projects</a> (40+)	<br>
+<a href="https://www.electronicshub.org/555-timer-circuits/?ref=sidebar">555 Timer Circuits</a> (40+)	<br>
+<a href="https://www.electronicshub.org/sensor-based-projects-ideas/?ref=sidebar">Sensor Projects</a> (40+)	<br>
+<a href="https://www.electronicshub.org/arm-based-projects/?ref=sidebar">ARM Projects</a> (60+)	<br>
+<a href="https://www.electronicshub.org/dtmf-projects-ideas/?ref=sidebar">DTMF Projects</a> (30+)	<br>
+<a href="https://www.electronicshub.org/top-pic-microcontroller-projects-ideas/?ref=sidebar">PIC Projects</a> (30+)	<br>
+<a href="https://www.electronicshub.org/top-electrical-mini-projects/?ref=sidebar">Electrical Mini Projects</a> (25)	<br>
+<a href="https://www.electronicshub.org/esp8266-projects/?ref=sidebar">ESP8266 Projects
+</a> (15)	<br></div>
+		</div></section>
+<section id="text-24" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Kits</h4>
+			<div class="textwidget"><p><a href="https://www.electronicshub.org/drone-kits-beginners/">Best Drone Kits [12]</a><br>
+<a href="https://www.electronicshub.org/3d-printer-kits-buy-online/">3D Printer Kits [12]</a><br>
+<a href="https://www.electronicshub.org/top-robot-vacuum-cleaners/">Best Robot Vacuum Clears [14]</a><br>
+<a href="https://www.electronicshub.org/best-waveform-generators/">Best Waveform Generators [12]</a><br>
+<a href="https://www.electronicshub.org/best-rgb-led-strip-light-kits/">RGB LED Strip Light Kits [20]</a><br>
+<a href="https://www.electronicshub.org/led-christmas-lights/">Best LED Christmas Light Kits [13]</a></p>
+</div>
+		</div></section>
+<section id="text-12" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><!-- /8095840/.2_A.34793.7_electronicshub.org_tier1 -->
+<div id="div-gpt-ad-1530532333266-1" style="width:300px;">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1530532333266-1'); });
+</script>
+</div>
+<div id="div-gpt-ad-1527869606268-5" style="width:300px;">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1527869606268-5'); });
+</script>
+<div id="google_ads_iframe_/8095840/.2_A.34709.4_electronicshub.org_tier1_0__container__" style="border: 0pt none; width: 300px; height: 250px;"></div></div>
+</div>
+		</div></section>
+<section id="text-32" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Subscribe for Updates</h4>
+			<div class="textwidget"><form style="border: 1px solid #ccc; padding: 3px; text-align: center;" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow">Enter your email address:<p></p>
+<p><input style="width: 140px;" name="email" type="text"></p>
+<p><input name="uri" type="hidden" value="ElectronicsHub"><input name="loc" type="hidden" value="en_US"><input type="submit" value="Subscribe"></p>
+</form>
+</div>
+		</div></section>
+</aside></div></div><div class="footer-widgets"><div class="wrap"><div class="widget-area footer-widgets-1 footer-widget-area"><section id="nav_menu-2" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">GENERAL</h4>
+<div class="menu-eh-ft-1-container"><ul id="menu-eh-ft-1" class="menu"><li id="menu-item-8633" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8633"><a href="https://www.electronicshub.org/tutorials/" itemprop="url">Tutorials</a></li>
+<li id="menu-item-8634" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8634"><a href="https://www.electronicshub.org/symbols/" itemprop="url">Symbols</a></li>
+<li id="menu-item-11477" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11477"><a href="http://courses.electronicshub.org/" itemprop="url">Courses</a></li>
+<li id="menu-item-8635" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8635"><a href="https://www.electronicshub.org/tools/" itemprop="url">Calculator</a></li>
+<li id="menu-item-8636" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8636"><a href="https://www.electronicshub.org/contact/" itemprop="url">Contact</a></li>
+<li id="menu-item-20987" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20987"><a href="https://homezene.com/" itemprop="url">HomeZene</a></li>
+</ul></div></div></section>
+<section id="text-31" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><div id="amzn-assoc-ad-0a35d256-60f5-42c3-8bf7-23afcc584779"></div>
+<p><script async="" src="./RFID Reader_files/onejs"></script></p>
+</div>
+		</div></section>
+</div><div class="widget-area footer-widgets-2 footer-widget-area"><section id="nav_menu-3" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">PROJECTS</h4>
+<div class="menu-eh-ft-2-container"><ul id="menu-eh-ft-2" class="menu"><li id="menu-item-8637" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8637"><a href="https://www.electronicshub.org/electrical-projects-ideas/" itemprop="url">Electrical</a></li>
+<li id="menu-item-8638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8638"><a href="https://www.electronicshub.org/electronics-projects-ideas/" itemprop="url">Electronics</a></li>
+<li id="menu-item-8639" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8639"><a href="https://www.electronicshub.org/embedded-systems-projects-ideas/" itemprop="url">Embedded</a></li>
+<li id="menu-item-8640" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8640"><a href="https://www.electronicshub.org/top-power-electronics-projects-ideas/" itemprop="url">Power</a></li>
+<li id="menu-item-8641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8641"><a href="https://www.electronicshub.org/robotics-projects-ideas/" itemprop="url">Robotics</a></li>
+<li id="menu-item-8983" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8983"><a href="https://www.electronicshub.org/arm-based-projects/" itemprop="url">ARM</a></li>
+<li id="menu-item-12314" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12314"><a href="https://www.electronicshub.org/iot-project-ideas/" itemprop="url">IOT</a></li>
+</ul></div></div></section>
+</div><div class="widget-area footer-widgets-3 footer-widget-area"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">PROJECTS</h4>
+<div class="menu-eh-ft-3-container"><ul id="menu-eh-ft-3" class="menu"><li id="menu-item-8642" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8642"><a href="https://www.electronicshub.org/electronics-mini-project-circuits/" itemprop="url">Mini projects</a></li>
+<li id="menu-item-8643" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8643"><a href="https://www.electronicshub.org/microcontroller-based-mini-projects-ideas/" itemprop="url">Microcontroller</a></li>
+<li id="menu-item-8644" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8644"><a href="https://www.electronicshub.org/arduino-project-ideas/" itemprop="url">Arduino</a></li>
+<li id="menu-item-8645" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8645"><a href="https://www.electronicshub.org/solar-energy-projects-ideas/" itemprop="url">Solar</a></li>
+<li id="menu-item-8646" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8646"><a href="https://www.electronicshub.org/free-project-circuits/" itemprop="url">Free circuits</a></li>
+<li id="menu-item-11985" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11985"><a href="https://www.electronicshub.org/home-automation-projects/" itemprop="url">Home Automation</a></li>
+<li id="menu-item-15549" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15549"><a href="https://www.electronicshub.org/seminar-topics-ece-students/" itemprop="url">Seminar Topics</a></li>
+<li id="menu-item-15550" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15550"><a href="https://www.electronicshub.org/basic-electronics-questions/" itemprop="url">Electronics Questions</a></li>
+</ul></div></div></section>
+</div><div class="widget-area footer-widgets-4 footer-widget-area"><section id="nav_menu-5" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">TUTORIALS</h4>
+<div class="menu-eh-ft-4-container"><ul id="menu-eh-ft-4" class="menu"><li id="menu-item-8647" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8647"><a href="https://www.electronicshub.org/tutorials/#1_Capacitors" itemprop="url">Capacitors</a></li>
+<li id="menu-item-8648" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8648"><a href="https://www.electronicshub.org/tutorials/#2_Resistors" itemprop="url">Resistors</a></li>
+<li id="menu-item-8649" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8649"><a href="https://www.electronicshub.org/tutorials/#3_Filters" itemprop="url">Filters</a></li>
+<li id="menu-item-8650" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8650"><a href="https://www.electronicshub.org/tutorials/#5_Diodes" itemprop="url">Diodes</a></li>
+<li id="menu-item-8651" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8651"><a href="https://www.electronicshub.org/tutorials/#6_Transistors" itemprop="url">Transistors</a></li>
+</ul></div></div></section>
+</div><div class="widget-area footer-widgets-5 footer-widget-area"><section id="nav_menu-7" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">TUTORIALS</h4>
+<div class="menu-eh-ft-5-container"><ul id="menu-eh-ft-5" class="menu"><li id="menu-item-8664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8664"><a href="https://www.electronicshub.org/tutorials/#4_Operational_Amplifiers" itemprop="url">Amplifiers</a></li>
+<li id="menu-item-8665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8665"><a href="https://www.electronicshub.org/tutorials/#8_IO_Devices" itemprop="url">IO Devices</a></li>
+<li id="menu-item-8666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8666"><a href="https://www.electronicshub.org/tutorials/#11_Thyristors" itemprop="url">Thyristors</a></li>
+<li id="menu-item-8667" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8667"><a href="https://www.electronicshub.org/tutorials/#10_DC_Circuit_Theory" itemprop="url">DC Circuits</a></li>
+<li id="menu-item-8668" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8668"><a href="https://www.electronicshub.org/tutorials/#7_Number_Systems" itemprop="url">Number System</a></li>
+<li id="menu-item-20361" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20361"><a href="https://www.electronicshub.org/ts-eamcet/" itemprop="url">TS EAMCET 2019</a></li>
+</ul></div></div></section>
+</div><div class="widget-area footer-widgets-6 footer-widget-area"><section id="nav_menu-6" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">FOLLOW US</h4>
+<div class="menu-eh-ft-6-container"><ul id="menu-eh-ft-6" class="menu"><li id="menu-item-15525" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15525"><a href="https://www.instagram.com/eh_org/" itemprop="url">Instagram</a></li>
+<li id="menu-item-8661" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8661"><a href="https://www.youtube.com/user/electronicshuborg" itemprop="url">Youtube</a></li>
+<li id="menu-item-8660" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8660"><a href="https://www.facebook.com/electronicshub.org" itemprop="url">Facebook</a></li>
+<li id="menu-item-8662" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8662"><a href="https://plus.google.com/+ElectronicsHubOrg?prsrc=5" itemprop="url">Google Plus</a></li>
+<li id="menu-item-8663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8663"><a href="http://twitter.com/eh_org" itemprop="url">Twitter</a></li>
+</ul></div></div></section>
+</div></div></div><footer class="site-footer" itemscope="" itemtype="https://schema.org/WPFooter"><div class="wrap"><div class="gototop"><p></p></div><div class="creds"><p>Copyright ©&nbsp;2019 Electronicshub.org</p></div></div></footer></div><iframe name="__cmpLocator" style="display: none;" src="./RFID Reader_files/saved_resource.html"></iframe><script type="application/javascript" src="./RFID Reader_files/ac"></script><link rel="stylesheet" id="su-shortcodes-css" href="./RFID Reader_files/shortcodes.css" type="text/css" media="all">
+<script type="text/javascript" src="./RFID Reader_files/comment-reply.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"https:\/\/www.electronicshub.org\/wp-admin\/admin-ajax.php","force_ajax_send":"1","is_crawler":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./RFID Reader_files/frontend.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/core.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/widget.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/tabs.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/scripts.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/jquery.smooth-scroll.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/js.cookie.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/jquery.sticky-kit.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/jquery.waypoints.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ezTOC = {"smooth_scroll":"1","visibility_hide_by_default":"","width":"auto","scroll_offset":"30"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./RFID Reader_files/front.min.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/wp-embed.min.js.download"></script>
+<script async="async" type="text/javascript" src="./RFID Reader_files/form.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/swiper.js.download"></script>
+<script type="text/javascript" src="./RFID Reader_files/galleries-shortcodes.js.download"></script>
+<script type="text/javascript">var tcb_post_lists=JSON.parse('[]');</script><script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var aawp_geotargeting_api = "";
+        var aawp_geotargeting_settings = {"store":"com","mode":"title"};
+        var aawp_geotargeting_localized_stores = {"ca":"ca","in":"in","gb":"co.uk","ie":"co.uk"};
+        var aawp_geotargeting_tracking_ids = {"ca":"eh01a09-20","in":"eh04e-21","co.uk":"eh0e9-21"};
+        /* ]]> */
+    </script>
+    
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Page Caching using disk: enhanced 
+
+Served from: www.electronicshub.org @ 2019-07-01 08:58:58 by W3 Total Cache
+--></body></html>
